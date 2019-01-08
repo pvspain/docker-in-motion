@@ -14,14 +14,14 @@ My notes for the Manning video course, [Docker In Motion][1]
   - [Docker tools and services](#docker-tools-and-services)
     - [Container](#container)
     - [Hub](#hub)
-    - [Docker Compose](#docker-compose)
-    - [Docker image](#docker-image)
-    - [Logging](#logging)
+    - [Compose](#compose)
+    - [Image](#image)
+    - [Logs](#logs)
     - [Networking](#networking)
     - [Volumes](#volumes)
-    - [Docker Swarm](#docker-swarm)
+    - [Swarm](#swarm)
     - [Registry](#registry)
-    - [Docker Machine](#docker-machine)
+    - [Machine](#machine)
 
 ## Introduction
 
@@ -82,15 +82,15 @@ A **container** houses all the required libraries and dependencies for it to run
 
 The **Hub** is a cloud-based registry service that offers public and private code repositories, workflows, pipelines, and collaboration tools. Here you can search and download public Docker images from organizations such as Ubuntu, Apache, MySQL, and many many more. From the Hub, you can push and pull your own Docker images, which are sent to the *Docker Cloud*. Both the Docker Cloud and the *Docker Hub* require a **Docker ID**, which you can get by registering a Docker Hub account. The collaboration element of Docker Hub allows you to create and manage teams of users that have different access levels to your Docker images. Features such as automated builds with webhooks can also be used within the build pipeline.
 
-### Docker Compose
+### Compose
 
 With **Docker Compose**, you are able to configure multiple services which make up your application in one or more Docker Compose files. These files are created in a *YAML* structure, and can be committed to source control. Docker Compose is very useful when deploying to different sets of environments, such as development, staging, or even production.
 
-### Docker image
+### Image
 
 A **Docker image** is *a set of layers* that create *instances of containers*. These are immutable and isolated. Docker images are built using **Dockerfiles**.
 
-### Logging
+### Logs
 
 **Container logs** can be accessed via the Docker Compose, as well as through the normal Docker command-line interface. By default, the Unix and Linux standard output and standard error streams can be accessed via the `docker log` command. Certain logging mechanisms may require additional steps to allow Docker to access the container logs; for instance, a service may send the log output to a file or database instead of a stream. This will mean the logs will be unavailable until the logging output is configured.
 
@@ -110,7 +110,7 @@ We can also supply different options when creating containers that allow us to u
 
 A data volume is a means of sharing and storing persistent storage. A host directory can be bind mounted, or a **Docker volume** can be used. Volumes can be shared amongst containers, and backup and copy features are also available.
 
-### Docker Swarm
+### Swarm
 
 A **Docker swarm** is a *cluster of Docker Engines* that are configured on *remote Docker Machines*. This allows us to manage multiple Docker Engines and therefore control multiple services that have been deployed. Replication, load balancing, rolling image, and configuration updates, multi-host networking, and cluster management are but a few features that the Docker swarm tool offers. [Kubernetes][4] is an alternative to Docker swarm, that is also supported by Docker.
 
@@ -118,7 +118,7 @@ A **Docker swarm** is a *cluster of Docker Engines* that are configured on *remo
 
 The **Docker Registry** is an application for storing and distributing Docker images. This is a scalable and cloud-based solution that can be run privately to your host and share your own images. Once set up, you can search, commit, push, and pull images within your own team.
 
-### Docker Machine
+### Machine
 
 The **Docker Machine** is a virtual host that is set up to run the *Docker Engine*. If you think of it like a virtual machine in which you have an isolated machine which has its own Docker Engine, and therefore its own set of Docker containers.
 
