@@ -125,4 +125,4 @@ The **Docker Machine** is a virtual host that is set up to run the *Docker Engin
 [1]: https://www.manning.com/livevideo/docker
 [2]: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 [3]: https://www.linode.com/
-[4]?:? https://kubernetes.io/
+[4]: https://kubernetes.io/
