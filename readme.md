@@ -141,10 +141,10 @@ The **Docker Machine** is a virtual host that is set up to run the *Docker Engin
 - This is a useful way to add common tools or policy to a group of images.
 - Each image and container has a unique ID, its SHA-256 hashsum value. Typically only the first 12 hex characters are displayed by commands.
 
-- List *images* via `docker images`
+- List *images* via `docker images` or `docker image ls`
   - uniquely identified via **image id**
   - - the output also lists *repository* by its human-friendly name, e.g. `nginx`
-- List *containers* via `docker ps`
+- List *containers* via `docker ps` or `docker container ls`
   - uniquely identified via **container id**
   - the output also lists *image* by its human-friendly name, e.g. `nginx`
 
