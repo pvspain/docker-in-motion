@@ -22,6 +22,7 @@ My notes for the Manning video course, [Docker In Motion][1]
     - [Swarm](#swarm)
     - [Registry](#registry)
     - [Machine](#machine)
+  - [Images vs containers](#images-vs-containers)
 
 ## Introduction
 
@@ -46,7 +47,11 @@ EOF
 
 ## What is the Docker Engine?
 
-The Engine consists of three components:the server, a client, as well as a RESTful API.
+The Engine consists of three components:
+
+- server
+- client
+- RESTful API
 
 ### Server
 
@@ -121,6 +126,28 @@ The **Docker Registry** is an application for storing and distributing Docker im
 ### Machine
 
 The **Docker Machine** is a virtual host that is set up to run the *Docker Engine*. If you think of it like a virtual machine in which you have an isolated machine which has its own Docker Engine, and therefore its own set of Docker containers.
+
+## Images vs containers
+
+- *Containers* are instantiated from *images*.
+- Multiple, similar containers can be instantiated from a given image.
+- An *image* is composed of one or more *layers*.
+- Each layer results in a container, composed of all the layers to that point. Onyl the topmost layer is mutable (changeable). Lower layers are immutable.
+- An image can also be extended from another image via single inheritance (not multiple inheritance).
+  - Chains of inheritance/ancestors are possible and the chains can be divergent, but not convergent.
+    - i.e a parent can have multiple children, but a child can not have multiple (immediate) parents.
+    - There must be a singular path tracing from a child back through its ancestors  
+- A child image will include the content and configuration of its parent/ancestor images.
+- This is a useful way to add common tools or policy to a group of images.
+- Each image and container has a unique ID, its SHA-256 hashsum value. Typically only the first 12 hex characters are displayed by commands.
+
+- List *images* via `docker images`
+  - uniquely identified via **image id**
+  - - the output also lists *repository* by its human-friendly name, e.g. `nginx`
+- List *containers* via `docker ps`
+  - uniquely identified via **container id**
+  - the output also lists *image* by its human-friendly name, e.g. `nginx`
+
 
 [1]: https://www.manning.com/livevideo/docker
 [2]: https://docs.docker.com/install/linux/docker-ce/ubuntu/
